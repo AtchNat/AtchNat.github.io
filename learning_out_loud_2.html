@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <meta name="description" content="Learning Out Loud 1"/>
+    <title>Learning Out Loud 1</title>
+    <link rel="stylesheet" href="./styles.css"/>
+  </head>
+<body>
+    <h1>Continuing with React</h1>
+    <p>I left it the other day when the counter was going of a fashion, but then going bananas shortly after setting going.  useEffect, with a callback function, will perform the callback function before each display (another part of React that I need to get my head around - what happens and when).
+</p>
+    <p>With the dictated code, we keep the setInterval containing the main meat of the 'count' aspect with useState returning the count, then refreshing with 'count+1'.  But we put this function within userEffect, 
+</p>
+<img src="./img/counter_code_snippet.png" alt="Counter code">
+<p>The next point we go onto look at is how, in the counter app, the 'count' pushed to the console is different to the one pushed to the page, that it's out by one.  The error is further shown by including two increments of the 'count' call, where the counter still iterates by 1 rather than counting in pairs (expected if the 'count' function is running twice):
+</p>
+<img src="./img/counter_2_iterations.png" alt="Counter App with 2 iterations">
+<img src="./img/counter_screenshot.png" alt="Counter screenshot">
+<p>The snippet of code shows that the separate iterations of 'count' aren't updated form each other but are updating asynchronously.  Meaning that the second iteration is not using the first iteration to update itself, but is using the original version.  To counter this, the book prescribes using a variation of setCount that uses a callback function as a parameter, as opposed to a value:
+</p>
+<img src="./img/counter_2_iterations_snippet_2.png" alt="Count App with 2 callback iterations">
+<p>The difference here is that running a specified function will update the original const 'count' every time it's run and therefore the counter goes in twos:
+</p>
+<p>But it still doesn't solve the original problem of the page and the console being at different stages (not to jump ahead, but I'm guessing because the console is updated within the first function that's nested in the others and the page isn't updated until the return statement of the second nested function):
+</p>
+<img src="./img/counter_console__out_by_one.png" alt="">
+<p> There'll be method in this approach, and it's useful showing how issues with asynchronous events can be overcome, but not facing the root of the original problem we came across.  
+</p>
+<p>(<b>Spoiler Alert</b> I've come crashing to the end of the chapter, and the console is still 'out by one', so I think it best to move on.  Maybe I'll get a brainwave and come back, but I'm not holding my breath.)</p>
+<p>Moving onto using init properties for a function, you can insert an initial value (written here as 'init', and 'props' as 'property') to a specified function.  The below code snippet shows passing in the 'init' property as an Integer (if stated as a "string" rather than a {JavaScript value}), or reverting to '0' if a value isn't given.
+</p>
+<img src="./img/init_code_snippet.png" alt="init code snippit">
+<p>Then, as well as making changes to 'counter.js', changes are also made to App.js to demonstrate the different ways to pass an 'init' value into a function:
+</p>
+<img src="./img/init_code_app_snippet.png" alt="init snippet with change to App code"><br>
+<img src="./img/counter_init_example.png" alt="Counter App init example">
+<p>And a further unheralded introduction to ES6 syntax (JavaScript 2015 'new features'), you can access the 'init' property directly by using the attribute in the form of an object, making it more readable and that bit more elegant in a way:
+</p>
+<img src="./img/init_ES6.png" alt="Init ES6 changes"><br>
+<h3>Reflections</h3>
+<p>That takes me to the end of the first chapter, and I feel like it's covered a lot.  Looking forward to some reinforcement of previous lessons in the upcoming chapters and tutorials, as well as keeping up the pace of learning.  Using this as a bit of 'reflective practice' as well as anything else, I'm not sure what I want this to be, going forward.  I've noticed that I've felt like i've been parotting a book for a lot of it, especially this second one, but I'm also conscious that I don't want this to be too manicured - I know if I let it get too far that way, I'll never 'hit send'.  Refer to previous comments on 'sacrificing good at the altar of great' and so forth.  That's not to say I'm not eager to improve, but to try and make continual improvement as I go rather than labouring over each submission.</p>
+<br>
+<a href="./index.html">Back to my Main Page</a> || <a href="https://www.linkedin.com/in/will-campbell-ricketts/">Find me on LinkedIn</a>
+</body>
+</html>
