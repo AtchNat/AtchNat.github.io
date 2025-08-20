@@ -16,6 +16,43 @@
 <div class="row">
   <div class="leftcolumn">
     <div class="card blogPost">
+      <h2>Getting into JSX after a bit of a pause</h2>
+      <div class="fakeimg">20 Aug, 2025</div>
+      <div>
+        <p>And we're back after a bit of a pause for summer family shenanigans, but I had this post 'waiting in the wings' that I ashamedly didn't post before disappearing. The learning continues, as does the inane ramblings that you find here! Enjoy.</p>
+        <p><b>Getting into JSX</b><br></p>
+        <p>Aside from the acronym-fuelled acronym as I mentioned previously, I've come across JSX only a couple of times before and not in any meaningful way, so I'm looking forward to getting my head into JSX and understanding it better.  From the first look in chapter 1, it allows JavaScript and HTML to be put neatly into a component or app.  It also needs a 'root' (to avoid a runtime error, which makes the nesting I mentioned in Day one (index > App > [function] a bit clearer).  You could use a <code>div</code> to wrap all HTML in, but this is redundant and will need to be artificially added in.</p>
+        <p>React has replaced the 'div' requirement with a specific React element known as the 'React.Fragment component', or the 'element'.  This can be shown in three ways:</p>
+        <ul><li><code>React.Fragment</code> tag</li><li><code>Fragment</code> tag </li><li>An empty <code><></code> tag (shorthand version of the previous two examples that has been used so far in the book)</li></ul>
+        <p>These set ups require different handling in the 'app' file, and I'll try and go through each one as they come.  (side note - I'm doing my usual of reading the content, then going back with a confused look on my face, then trying to explain it on here so please bear with.)</p>
+        <p>So, "I left you in this position here…" from the previous learning, using empty tags in 'app.js':</p>
+        <img src="./img/4 initial state.png" alt="Initial State">
+        <p><b>Using <code>React.Fragment</code> elements </b></p>
+        <img src="./img/4 react fragment state.png" alt="React.Fragment state">
+        <p>Place all the JSX outputs within <code><React.Fragment></React.Fragment></code> elements.  You need to use <code>import React from "react"</code> at the top of the script as well.</p>
+        <p><b>Using <code>Fragment</code> elements</b></p>
+        <img src="./img/4 fragment state.png" alt="Fragment state">
+        <p>Place all the JSX output into a <code>Frament</code> element, and import the '<code>{Fragment}</code>' element from "react".  Because Fragment isn't the default export in the module, you need to enclose it in curly braces.</p>
+        <p><b>Using the <code><></code> Element</b></p>
+        <p>Using the <> tags as we did at the top of the post means that you don't have to import <code>React</code> or <code>{Fragment}</code> from <code>"react"</code> since you don't use <code>React.Fragment</code> directly but indirectly instead.</p>
+        <p>One thing that's come to me from this is what to import / export and where when using React.  The last line of any single 'script page' in the nested scripts of 'index.js / App.js / Counter.js' that I've been using thus far has been 'export default #####' with the name of the overarching function.  This is mirrored with an 'import' at the top of the next 'parent' script (eg app.js features <code> import Counter from "./Counter.js";</code>), and therefore each script only needs to import what is needed directly within that script, shown by only needing to import <code>{Fragment}</code> when using <code>React.Fragment</code> rather than every script needing a fresh '<code>import React from "react"</code>'.</p>
+        <p>A final hint is left here that the <code><></code> element isn't the catch all, and sometimes you need to use React.Fragment - use cases to follow further down the line.</p>
+        <p><b>Inserting JavasScript into JSX</b></p>
+        <p>Opening statement - all JSX code is converted into HTML code and displayed in the browser.  It's something that I was struck by early on, but while we get deeper into React, it's probably something that this idiot will need reminding of frequently and I can see that this statement will come back to haunt me when I've been staring at a snippet of code for what feels like months and trying to figure out why it isn't working. </p>
+        <p>This also means that any JavaScript that is written within JSX must return JSX code (which, in turn will be converted into HTML).  As we've seen already, javascript elements (including comments) need to be contained in {curly braces} so that they can be treated as JavaScript instead of as routine HTML and things will go sideways pretty swiftly.</p>
+        <p>Working from the previous counter app, adding in an 'end' argument gives the opportunity to add a conditional test, inserted by an 'immediately invoked' function in the example below.  The term 'immediately invoked' wasn't a term I was overly familiar with, but it allows a function to be executed directly (or, as the name may suggest, it is invoked immediately) and is signified by the empty pair of brackets at the end of it.</p>
+        <img src="./img/4 immediate invocation.png" alt="Immediate Invocation">
+        <p>The seeming centre of this exercise is the conditional function that forms part of the return statement and either says "Counter stopped" or "Counter in progress", depending if the counter is in progress or stopped.</p>
+        <p>While I still have a fair bit to get my head around immediately invoked functions, part of my learning process was 'well, let's break it and see what happens by removing the '<code>()</code>' immediate invocation .  Spoiler alert, this is what happens:</p>
+        <img src="./img/4 immediate invocation error.png" alt="Immediate Invocation Error">
+        <p>This is quite useful to note, or I found it useful in figuring out what is going on when I don't immediately invoke the function - React needs to call the function as part of the return process, rather than just returning a function for the browser to try and figure out what to do with.  Going forward, I think the way to look at it might be to always reduce elements to what needs to be output (going back to the statement that JSX must always be able to be converted to HTML).</p>
+        <p>An easier way of inserting the conditional test is with a ternary operator, essentially 'condition ? Statement 1 : Statement 2' where if 'condition' is true, it's statement 1, if 'condition' is false, statement 2 is on the plate.  This changes the JavaScript inserted into the return JSX to this:</p>
+        <img src="./img/4 ternary operator.png" alt="ternary operator">
+        <p>If 'end' is 'truthy' (i.e. if it's a valid number greater than 0 in this case) AND 'count' is greater than or equal to 'end', then 'Counter stopped' is returned (in bold with the <code>b</code> tags).  If both those statements aren't true, so if 'end' is 0, undefined or an empty string (among other 'falsy' values) OR if 'count' is less than 'end', then 'Counter in progress' is returned (in italics thanks to the <code>i</code> tags).  Apologies for the brief glossing over of 'truthy / falsy' statements and if this makes things even less clear, please shout at me and I can relook at it!</p>
+        <p>The final part of the section is a warning not to directly use an if(condition) statement that isn't within an immediately invoked function as it won't return a result and will fall over (see my 'let's break it to learn' exploration of the immediately invoked function above).</p>
+      </div>
+    </div>
+    <div class="card blogPost">
       <h2>Going Back</h2>
       <div class="fakeimg">1 Aug, 2025</div>
       <div>
@@ -110,7 +147,7 @@
     </div>
     <div class="card followMe">
       <h3>Follow Me</h3>
-      <p>I'd really welcome your thoughts, feedback or anything else.  While there are still grat big 'Work in Progress' areas with scaffolding around them, you can <a href="https://www.linkedin.com/in/will-campbell-ricketts/">find me on LinkedIn</a>.  More to follow!</p>
+      <p>I'd really welcome your thoughts, feedback or anything else.  While there are still great big 'Work in Progress' areas with scaffolding around them, you can <a href="https://www.linkedin.com/in/will-campbell-ricketts/">find me on LinkedIn</a>.  More to follow!</p>
     </div>
     <div class="card popularPost" style="visibility: hidden;">
       <h3>Popular Post</h3>
