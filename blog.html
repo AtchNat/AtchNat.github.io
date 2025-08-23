@@ -16,6 +16,40 @@
 <div class="row">
   <div class="leftcolumn">
     <div class="card blogPost">
+      <h2>Continuing with JSX</h2>
+      <div class="fakeimg">23 Aug 25</div>
+      <div>
+        <p><b>Loops</b></p>
+        <img src="./img/5 loop.png" alt="JSX Loop">
+        <p>Creating loops is a foundation part of any language (he says, feigning great knowledge), and, as with vanilla JavaScript, there are a number of options to choose from and here we've used what I see as the 'straight forward' for loop, with an initialisation, a condition and an action to meet that condition.  In the above example, we're pushing the output of each iteration to an empty array named 'jsx' and then, once we've worked through each step of the for loop (ie when <code> i = 3 </code>) then the entire 'jsx' array will be returned and then immediately invoked (denoted by the empty brackets).</p>
+        <p>When running this, there's direction to look at the console (something that I'm getting more and more used to and finding it more and more useful too!) which shows the following error:</p>
+        <img src="img/5 loop key error.png" alt="Loop key error">
+        <p>While it doesn't prevent the page from running, this could be categorised as a 'warning leading to a recommendation' rather than a 'pure error'.  The recommendation is to give each JSX element a unique 'key' element, which needs to be unique for each element within the loop.  This in turn supports handling longer lists within React.  So, straight on with 'keys':</p>
+        <p><b>JSX 'key' attributes</b></p>
+        <img src="img/5 jsx key.png" alt="JSX Keys">
+        <p>The first thing I noticed with this code is the need to <code>import React from "react"</code> snippet at the top of the script.  This is needed as a key can't be attached to the empty '<>' tags (which usually would have the relevant tag artificially placed onto it).  Understandable that trying to insert the relevant React tags onto a tag that (from an HTML perspective) is a 'key' tag and the JSX throws a track from that point on.</p>
+        <p>From the 'learn by breaking' approach I'm enjoying more and more, VSCode throws the unidentified red squiggly line around as soon as you remove the 'Fragment' tag and is frantically looking for where 'key' is declared:</p>
+        <img src="img/5 key empty tag warnings.png" alt="Key Empty Tags">
+        <p>But, of note, the empty '<>' tag is the only tag not able to assign the 'key' attribute to.  Using <code>Fragment</code> tags produces the same result of a gloriously blank console, as long as the import statement is changed as previously discussed to <code>import {Fragment} from "react"</code>.</p>
+        <p><b>Note. </b> 'Key' values MUST MUST be unique when assigned to it, and the key must be retained by the element following assignment.  Therefore, there's a danger by using the index within a list as with the above example that, if a separate list assigned 'i' to a different list, then the keys would no longer be unique.  Similarly, if an element is reassigned a different key further down the line, then React will treat it as a new element and re-create it.  Things to look out for and, as above, things to try and recall when I've been staring blankly at a snippet of code wondering why it won't work.</p>
+        <p><b>Using map() to write the JSX loop</b></p>
+        <p>The map(callback) method was something that I haven't used extensively before.  And, from the initial reading through the book section, and digging into <a href="https://www.w3schools.com/jsref/jsref_map.asp">w3's map()tutorial page</a>, the thing that jumps out at me and I need to keep in my mind is that it creates a new array once it has completed the callback function on the target array.  A number of times in the past I've been tripped up by calling a function on an array and not getting the results I've expected as I've been looking at the original array.  So, to try and get it into my head, original array in as reference, then new mapped array out.</p>
+        <p>In this example, the immediately invoked for loop is going to be replaced by map(callback):</p>
+        <img src="img/5 map callback.png" alt="map(callback)">
+        <p>What I wasn't expecting for this walkthrough was that the newly created array wouldn't be named and would simply be returned.  An easier solution here I would imagine, but not an approach I would have considered.</p>
+        <p><b>Styles in JSX</b></p>
+        <p>The final element of the chapter (yes, I know, we're finally there…) is inputting styles directly from React rather than separate CSS.  Points up front:</p>
+        <ul><li>Properties that are hyphenated in CSS (eg font-size) are written in camelCase as 'fontSize'</li><li>Double curly braces are used, one to show that you're using JavaScript within JSX, and the second creating it as a JavaScript 'object'.</li></ul>
+        <p>The result comes out as follows as part of the Counter.js script:</p>
+        <img src="img/5 jsx styles.png" alt="JSX styles">
+        <p>And we're left with this rather jazzy output:</p>
+        <img src="img/5 styled output.png" alt="styled output">
+        <p>What struck me most about this is putting the style into the 'b' tag, somewhere I haven't seen CSS injected from, but within this example there isn't anywhere else it could go to only impact the style of the 'Counter stopped' segment. Although I'm very sure there will be myriad ways to skin that particular cat.</p>
+        <p><b>An aside.</b> Immediately invoked functions became a topic of conversation this week following post 4 below, with a comment that they are rarely used 'in the wild' as good practice has shown that using a useEffect is a much better path.  While part of this will be a method to getting information across, it's interesting that all the immediately invoked functions have been replaced along the way, in the 'App' script by the map() function, and by a ternary operator within Counter.js.  This points at an emerging gap in my knowledge around useEffect, that it's been dictated to me but I still don't thoroughly get why it's there or what it's actually doing (apart from, for now, what it's told to).  One to dig into further in due course.</p>
+
+      </div>
+    </div>
+    <div class="card blogPost">
       <h2>Getting into JSX after a bit of a pause</h2>
       <div class="fakeimg">20 Aug, 2025</div>
       <div>
