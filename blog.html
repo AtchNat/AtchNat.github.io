@@ -15,6 +15,39 @@
 
 <div class="row">
   <div class="leftcolumn">
+
+    <div class="card blogPost">
+      <h2>Beginning with Playwright</h2>
+      <div class="fakeimg">24 Apr, 2026</div>
+      <div>
+        <p>A fair while since I posted last but I think I've found my next topic of inane ramblings! Moving on a bit from JavaScript and React, I'm going to hopefully be spending a fair while on automated testing, focussing on Playwright and using TypeScript.  This marks a different course than previously, where I'll be 'learning while doing' at work but hopefully will get through a few posts before my knowledge is utterly exhausted! This does come with the caveat that as I'm learning I certainly don't have all the answers and, as always, would welcome any discussion coming from what I've got wrong, haven't quite grasped or anything in between!</p>
+        <p>To start with, I'll aim to go through how I began with Playwright, a few of the key bits to get started and to get your head around first, then I'll try to get into a routine of posting what I learn recently - at the moment it seems like every day there's something that utterly baffles me and gets my brain going!  I've been using Playwright for a few months now and seem to be steadily getting my head around it so here goes.</p>
+        <p><b>Beginning in Playwright</b></p>
+        <img src="./img/6 Playwright.png" alt="Playwright logo">
+        <p>I'll give a health warning at this point - this is my answer, it's not the answer.  I'm only too aware that there are as many paths to enlightenment as there are people on the journey if not more, but I'll try to make that the last time that I turn into a cheesy hollywood 'sensei' parroting nonsense in a way to make it sound profound.  I was going to launch straight into things, but a quick description of Playwright is probably needed too.  Playwright is a testing framework for web-based products.  It can be used to run tests across a range of different browsers and can be used with different languages - JavaScript and TypeScript, Python, Java and .NET.  I'll be using TypeScript as the basis for this. </p>
+        <p>Before I go through what I found as a 'starter pack' for Playwright, I want to go through a bit of 'prior knowledge' that I found was a very useful foundation on which to build.  While this isn't a must by any stretch of the imagination, it made my life easier and enabled me to focus on learning the important stuff rather than tripping over the basics more than I did (spoiler alert - it was a lot…).</p>
+        <p>My route into automated testing was based on a fairly decent knowledge of the foundations of JavaScript. As the name suggests, TypeScript is a short step beyond JavaScript, with one of the key differences being that it's strongly typed (ie you need to declare the types of variables and arguments you declare).  The JavaScript base for Typescript is broadly similar to any other language I'd imagine, that the exact syntax follows a broadly similar route with its own 'dialect', but I found the following useful to mostly have my head around on when I started, before i got too deep into Playwright as a whole:</p>
+        <ul>
+          <li>For loops in a couple of different formats to iterate through a list or array</li>
+          <li>If/else statements to cope with differences and a few 'logical paths'</li>
+          <li>Handling arrays and objects using both dot notation and bracket notation to get information flowing in the right direction</li>
+          <li>Basic use of functions, handling parameters and arguments etc and being comfortable with how to express arguments and outputs.</li>
+        </ul>
+        <img src="./img/6 if statement.png" alt="example if statement">
+        <p>Further to this, my previous foray into learning out loud with React gave me a handle on the following:</p>
+        <ul>
+          <li>Arrow functions, and the theory behind them, which are used a lot in the set up for tests.</li>
+          <li>Async functions, and the concept of returning a promise rather than returning a specific value, which is a key bit of 'behind the scenes' work to get your head around.</li>
+        </ul>
+        <img src="./img/6 async arrow test template.png" alt="test template example of async arrow function">
+        <p>Of all of the above, the key nugget of information that keeps coming home to roost for me (how many metaphors do you want in one sentence?!) is getting comfortable with the flow of data between different functions pages and tests.  I'll try and get a complete post together for this with a few different methods to consider so watch this space (again)!</p>
+        <p>As I write this, I'm still not sold on whether it's better or even necessary to have all of the above clear in your head before going into TypeScript or whether it's part of a 'parcel' that you learn as you get your hands on at first, but I found it useful to use it as a basis to build on and it's been useful for me to figure out what's going on 'under the hood' sometimes.</p>
+        <p>The other bit of prior knowledge that has helped enormously is being content with the use of VSCode (other dev environments are available).  It's a classic 'learn by doing' and knowing your way around just makes it easier all round.</p>
+        <p>Next time, I'll have a write up on getting started with Playwright and a few things to get your head around first of all as well as a handy learning model for getting started.
+</p>
+      </div>
+    </div>
+
     <div class="card blogPost">
       <h2>Continuing with JSX</h2>
       <div class="fakeimg">23 Aug 25</div>
@@ -176,7 +209,7 @@
     <div class="card aboutMe">
       <h2>About Me</h2>
       <img src="./img/will_cr.jpg" alt="Will" style="width:100%; ">
-      <p>I'm Will and I've taken the plunge into 'learning out loud' while I try and learn how to code, focussing on web development for now.</p>
+      <p>I'm Will and I've taken the plunge into 'learning out loud' while I try and learn a raft of different things.  I started focussing on web development but have moved into automated testing now.</p>
       <p>You can find more about me and my 'journey' on the <a href="./index.html">front page</a>.</p>
     </div>
     <div class="card followMe">
